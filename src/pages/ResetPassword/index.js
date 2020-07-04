@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
@@ -24,6 +26,7 @@ export default function ResetPassword() {
         <Input name="email" type="email" placeholder="Seu e-mail" />
 
         <button type="submit">Enviar e-mail de recuperação</button>
+        <Link to="/">Login</Link>
       </Form>
     </>
   );

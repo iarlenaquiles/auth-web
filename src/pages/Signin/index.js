@@ -32,6 +32,7 @@ export default function Signin() {
 
         <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
         <Link to="/register">Criar conta</Link>
+        <Link to="/reset/password">Esqueci minha senha</Link>
       </Form>
     </>
   );
