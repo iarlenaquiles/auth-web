@@ -77,7 +77,7 @@ export default function Users({ users, onDelete }) {
 
                   <TableCell>
                     <S.Actions>
-                      <Link to={`/users/edit/${row._id}`}>
+                      <Link to={{ pathname: `/users/edit/${row._id}`, state: row }}>
                         <button type="button" className="editar">
                           <MdEdit color="#fff" size={20} />
                           Editar
