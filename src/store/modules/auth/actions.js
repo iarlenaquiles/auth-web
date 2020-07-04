@@ -14,6 +14,14 @@ export function resetRequest(email) {
   };
 }
 
+export function changeRequest(newPassword, verifyPassword, token) {
+  return {
+    type: Types.CHANGE_REQUEST,
+    payload: { newPassword, verifyPassword, token }
+  };
+}
+
+
 export function signInSuccess(user, token) {
   return {
     type: Types.SIGN_IN_SUCCESS,
@@ -24,6 +32,13 @@ export function signInSuccess(user, token) {
 export function resetSuccess(message) {
   return {
     type: Types.RESET_SUCCESS,
+    payload: { message }
+  };
+}
+
+export function changeSuccess(message) {
+  return {
+    type: Types.CHANGE_SUCCESS,
     payload: { message }
   };
 }
@@ -44,6 +59,12 @@ export function signFailure() {
 export function resetFailure() {
   return {
     type: '@auth/RESET_FAILURE',
+  };
+}
+
+export function changeFailure() {
+  return {
+    type: '@auth/CHANGE_FAILURE',
   };
 }
 

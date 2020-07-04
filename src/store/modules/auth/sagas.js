@@ -6,7 +6,7 @@ import Types from './types';
 import api from '../../../services/api';
 import history from '../../../services/history';
 
-import { signFailure, signInSuccess, resetSuccess, resetFailure } from './actions';
+import { signFailure, signInSuccess, resetSuccess, resetFailure, changeSuccess, changeFailure } from './actions';
 
 export function* signIn({ payload }) {
   try {
@@ -50,6 +50,28 @@ export function* resetPassword({ payload }) {
   }
 }
 
+export function* changePassword({ payload }) {
+  try {
+    const { newPassword, verifyPassword, token } = payload;
+
+    const response = yield call(api.post, 'reset', {
+      newPassword,
+      verifyPassword,
+      token
+    });
+
+    const { message } = response.data;
+
+    yield put(changeSuccess(message));
+    toast.success('Senha modificada');
+    history.push('/');
+  } catch (error) {
+    toast.error('erro ao modificar a senha');
+
+    yield put(changeFailure());
+  }
+}
+
 
 export function* signUp({ payload }) {
   try {
@@ -87,5 +109,6 @@ export default all([
   takeLatest(Types.SIGN_UP_REQUEST, signUp),
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest(Types.SIGN_OUT, signOut),
-  takeLatest(Types.RESET_REQUEST, resetPassword)
+  takeLatest(Types.RESET_REQUEST, resetPassword),
+  takeLatest(Types.CHANGE_REQUEST, changePassword)
 ]);
