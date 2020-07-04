@@ -14,10 +14,10 @@ export function signInSuccess(user, token) {
   };
 }
 
-export function signUpRequest(name, email, password) {
+export function signUpRequest(fullname, email, password) {
   return {
     type: Types.SIGN_UP_REQUEST,
-    payload: { name, email, password }
+    payload: { fullname, email, password }
   };
 }
 
