@@ -22,6 +22,14 @@ export default function Header() {
         </nav>
 
         <aside>
+          <S.Profile>
+            <div>
+              <strong>{profile.name}</strong>
+              <Link to="/">Meu perfil</Link>
+            </div>
+
+          </S.Profile>
+
           <div>
             <button onClick={handleSignOut}>Sair</button>
           </div>
