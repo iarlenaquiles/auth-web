@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
-import { signUpRequest } from '~/store/modules/auth/actions';
+import { signUpRequest } from '../../store/modules/auth/actions';
 
 const schema = Yup.object().shape({
-  name: Yup.string().required('O nome é obrigatório'),
+  fullname: Yup.string().required('O nome é obrigatório'),
   email: Yup.string()
     .email('Insira um e-mail válido')
     .required('O e-mail é obrigatório'),
@@ -19,8 +19,8 @@ const schema = Yup.object().shape({
 export default function Signup() {
   const dispatch = useDispatch();
 
-  function handleSubmit({ name, email, password }) {
-    dispatch(signUpRequest(name, email, password));
+  function handleSubmit({ fullname, email, password }) {
+    dispatch(signUpRequest(fullname, email, password));
   }
 
   return (
