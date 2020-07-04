@@ -6,7 +6,7 @@ import Types from './types';
 import api from '../../../services/api';
 import history from '../../../services/history';
 
-import { signFailure, signInSuccess } from './actions';
+import { signFailure, signInSuccess, resetSuccess, resetFailure } from './actions';
 
 export function* signIn({ payload }) {
   try {
@@ -29,6 +29,27 @@ export function* signIn({ payload }) {
     yield put(signFailure());
   }
 }
+
+export function* resetPassword({ payload }) {
+  try {
+    const { email } = payload;
+
+    const response = yield call(api.post, 'forgot', {
+      email
+    });
+
+    const { message } = response.data;
+
+    yield put(resetSuccess(message));
+    toast.success('Verifique sua caixa de email');
+    history.push('/');
+  } catch (error) {
+    toast.error('Verifique o email digitado');
+
+    yield put(resetFailure());
+  }
+}
+
 
 export function* signUp({ payload }) {
   try {
@@ -65,5 +86,6 @@ export default all([
   takeLatest(Types.SIGN_IN_REQUEST, signIn),
   takeLatest(Types.SIGN_UP_REQUEST, signUp),
   takeLatest('persist/REHYDRATE', setToken),
-  takeLatest(Types.SIGN_OUT, signOut)
+  takeLatest(Types.SIGN_OUT, signOut),
+  takeLatest(Types.RESET_REQUEST, resetPassword)
 ]);

@@ -4,4 +4,6 @@ export default {
   SIGN_IN_FAILURE: '@auth/SIGN_FAILURE',
   SIGN_UP_REQUEST: '@auth/SIGN_UP_REQUEST',
   SIGN_OUT: '@auth/SIGN_OUT',
+  RESET_REQUEST: '@auth/RESET_REQUEST',
+  RESET_SUCCESS: '@auth/RESET_SUCCESS',
 };
