@@ -18,9 +18,7 @@ export default function Header() {
     <S.Container>
       <S.Content>
         <nav>
-          <Link to="/cliente">Clientes</Link>
           <Link to="/dashboard">Usuários</Link>
-          <Link to="/estoque">Fichas que comprei</Link>
         </nav>
 
         <aside>
