@@ -21,7 +21,7 @@ export default function ChangePassword({ location }) {
   useEffect(() => {
     const parsed = qs.parse(location.search);
     setToken(parsed.token)
-  }, []);
+  }, [location]);
 
   function handleSubmit({ newPassword, verifyPassword }) {
     dispatch(changeRequest(newPassword, verifyPassword, token));

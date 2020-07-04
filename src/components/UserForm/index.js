@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Check } from '@rocketseat/unform';
+import { Form, Input } from '@rocketseat/unform';
 import PropTypes from 'prop-types';
 
 function UserForm({ onSubmit, user }) {
