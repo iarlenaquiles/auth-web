@@ -78,6 +78,7 @@ export const Actions = styled.div`
     svg {
       align-self: flex-start;
       margin-right: 5px;
+      margin-top: 5px;
       align-items: center;
       justify-content: center;
     }
