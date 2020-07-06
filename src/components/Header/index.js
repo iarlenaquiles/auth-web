@@ -19,6 +19,10 @@ export default function Header() {
       <S.Content>
         <nav>
           <Link to="/dashboard">Usuários</Link>
+          <Link to="/people">People</Link>
+          <Link to="/films">Films</Link>
+          <Link to="/planets">Planets</Link>
+          <Link to="/starships">Starships</Link>
         </nav>
 
         <aside>
